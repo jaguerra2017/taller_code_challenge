@@ -4,17 +4,17 @@
         $minumumSumAmount = 0;
         if (!empty($coins)) {
             sort($coins);
-            $maxValue = $coins[count($coins)-1];
 
             foreach ($coins as $key => $coinValue) {
-                $minumumSumAmount+=$coinValue;
-                if (($minumumSumAmount + $coins[$key+1]) >= $maxValue) {
+                if ($coinValue > $minumumSumAmount + 1) {
                     break;
                 }
+                
+                $minumumSumAmount+=$coinValue;
             }
         }
         return $minumumSumAmount + 1;
     }
 
-    $coins = [1, 1, 1, 1, 1];
+    $coins = [5, 7, 1, 1, 2, 3, 22];
     minimumAmount($coins);
